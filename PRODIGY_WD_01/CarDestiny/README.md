@@ -1,8 +1,8 @@
 # ✅ **TASK 1 : RESPONSIVE LANDING PAGE**
 
-### **PAGE NAME : CarScrubz**
+### **PAGE NAME : CarDestiny**
 
-### **WEBSITE:** 
+### **WEBSITE:**
 
 ### **THEME : Car Washing Website**
 
