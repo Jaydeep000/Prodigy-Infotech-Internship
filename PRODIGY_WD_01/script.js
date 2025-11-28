@@ -490,3 +490,173 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 });
+
+
+/* =========================================
+   INTERACTIVE PARTICLE BACKGROUND
+   Features: Floating, Mouse Repulsion, Connecting Lines
+   ========================================= */
+
+(function initParticles() {
+    const canvas = document.getElementById("bg-floating-dots");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let particlesArray;
+
+    // Configuration
+    const config = {
+        particleColor: "rgba(139, 92, 246, 0.6)", // Your Violet Theme color
+        lineColor: "rgba(139, 92, 246, 0.15)",    // Faint violet lines
+        particleCount: 100,                       // Number of dots (adjust for performance)
+        connectionDistance: 120,                  // How close dots must be to connect
+        mouseRadius: 150,                         // Radius of mouse repulsion force
+        baseSpeed: 0.5                            // Floating speed
+    };
+
+    // Resize Canvas to fill screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Mouse Position Tracker
+    let mouse = {
+        x: null,
+        y: null,
+        radius: config.mouseRadius
+    }
+
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+
+    // Reset mouse when leaving window so dots don't get stuck
+    window.addEventListener('mouseout', () => {
+        mouse.x = undefined;
+        mouse.y = undefined;
+    });
+
+    // Create Particle Class
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.directionX = (Math.random() * 2.5) - 1.25; // Random horizontal speed
+            this.directionY = (Math.random() * 2.5) - 1.25; // Random vertical speed
+            this.size = (Math.random() * 2) + 1;            // Random size 1px-3px
+            this.color = config.particleColor;
+        }
+
+        // Method: Draw individual dot
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+
+        // Method: Update position & check physics
+        update() {
+            // 1. Check if dot hits canvas edge (bounce effect)
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+
+            // 2. Mouse Repulsion Logic (The "Float Away" effect)
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            // Pythagorean theorem to get distance
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius + this.size) {
+                if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                    this.x += 3; // Push right
+                }
+                if (mouse.x > this.x && this.x > this.size * 10) {
+                    this.x -= 3; // Push left
+                }
+                if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                    this.y += 3; // Push down
+                }
+                if (mouse.y > this.y && this.y > this.size * 10) {
+                    this.y -= 3; // Push up
+                }
+            }
+
+            // 3. Move particle
+            this.x += this.directionX * config.baseSpeed;
+            this.y += this.directionY * config.baseSpeed;
+
+            // 4. Redraw
+            this.draw();
+        }
+    }
+
+    // Initialize Array
+    function init() {
+        particlesArray = [];
+        // Determine number of particles based on screen size (fewer on mobile)
+        let numberOfParticles = (canvas.height * canvas.width) / 9000; 
+        
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    // Draw Lines between close particles
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
+                               ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                
+                // If particles are close enough, draw a line
+                if (distance < (config.connectionDistance * config.connectionDistance)) {
+                    opacityValue = 1 - (distance / 20000);
+                    ctx.strokeStyle = config.lineColor.replace('0.15', opacityValue * 0.15); // Dynamic opacity
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+        connect();
+    }
+
+    // Handle Window Resize (responsive)
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        mouse.radius = ((canvas.height / 80) * (canvas.height / 80));
+        init();
+    });
+
+    // Click "Pulse" Effect (Optional extra you asked for)
+    window.addEventListener('click', (e) => {
+        // Temporarily expand mouse radius to create a "shockwave"
+        let originalRadius = mouse.radius;
+        mouse.radius = originalRadius * 3;
+        setTimeout(() => { mouse.radius = originalRadius; }, 200);
+    });
+
+    // Start
+    init();
+    animate();
+
+})();

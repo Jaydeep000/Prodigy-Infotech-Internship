@@ -1324,3 +1324,15 @@ nav.nav--scrolled {
   width: 100%;
   border-radius: 10px;
 }
+/* =========================================
+   FIX FOR BLANK SPACE (CANVAS BACKGROUND)
+   ========================================= */
+#bg-floating-dots {
+    position: fixed;   /* 1. Fixes it to the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;       /* 2. Puts it BEHIND your text */
+    pointer-events: none; /* 3. Lets you click buttons through it */
+}
