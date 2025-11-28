@@ -580,55 +580,110 @@ nav.nav--scrolled {
 /* =========================================
    8. GALLERY
    ========================================= */
+/* ======== GALLERY GRID ======== */
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  perspective: 1000px; /* Enables 3D tilt */
 }
 
+/* ======== CARD STYLING ======== */
 .gallery__card {
   height: 280px;
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
   cursor: pointer;
-  margin: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Hover lift + tilt */
+.gallery__card:hover {
+  transform: translateY(-10px) rotate3d(1,1,0,8deg);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* Neon border glow on hover */
+.gallery__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  box-shadow: 0 0 25px var(--secondary-color), inset 0 0 25px var(--secondary-color);
+}
+
+.gallery__card:hover::after {
+  opacity: 1;
+}
+
+/* ======== IMAGE ======== */
 .gallery__card img {
   width: 100%;
   height: 100%;
-  transition: transform 0.6s ease;
+  transition: transform 1s ease;
 }
 
+/* Smooth zoom + rotation */
 .gallery__card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(2deg);
 }
 
+/* ======== OVERLAY ======== */
 .gallery__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.45);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: 0.3s;
-  backdrop-filter: blur(2px);
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  backdrop-filter: blur(3px);
 }
 
+/* Fade in + upward reveal */
 .gallery__card:hover .gallery__overlay {
   opacity: 1;
+  transform: translateY(0);
 }
 
+/* Icon pulse animation */
 .gallery__overlay i {
   font-size: 2rem;
   color: white;
   background: var(--secondary-color);
-  padding: 10px;
+  padding: 12px;
   border-radius: 50%;
+  animation: popIn 0.4s ease;
 }
 
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ======== LIGHT SHINE EFFECT ======== */
+.gallery__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-20deg);
+  transition: 0.7s;
+}
+
+.gallery__card:hover::before {
+  left: 120%;
+}
 /* =========================================
    9. TIMELINE
    ========================================= */
@@ -1335,4 +1390,240 @@ nav.nav--scrolled {
     height: 100%;
     z-index: -1;       /* 2. Puts it BEHIND your text */
     pointer-events: none; /* 3. Lets you click buttons through it */
+}
+/* =========================================
+   3D CUBE WIDGET
+   ========================================= */
+
+/* Container to center the cube in the available space */
+.cube-wrapper-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Gives the cube space to spin */
+    perspective: 1000px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%); /* Subtle glow behind */
+    border-radius: 20px;
+}
+
+.cube-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+}
+
+.cube-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    cursor: pointer;
+    /* Auto rotate slowly by default so people see it's 3D */
+    animation: rotate3d 20s infinite linear; 
+}
+
+/* Spin faster when hovered */
+.cube-box:hover {
+    animation: rotate3d 5s infinite linear; 
+}
+
+/* Common Face Styles */
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: visible; /* Show back of faces */
+    border-radius: 12px;
+    
+    /* GLASSMORPHISM EFFECT */
+    background: rgba(20, 20, 25, 0.85); 
+    border: 2px solid var(--secondary-color); /* Your violet border */
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); /* Violet Glow */
+    transition: all 0.3s ease;
+}
+
+/* Icon style inside cube */
+.cube-face i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+}
+
+/* Internal Shine Effect */
+.cube-face::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    top: -100%;
+    left: -100%;
+    transition: all 0.5s ease;
+}
+
+.cube-face:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+/* Face Positioning */
+.cube-face.front  { transform: translateZ(100px); }
+.cube-face.back   { transform: translateZ(-100px) rotateY(180deg); }
+.cube-face.right  { transform: translateX(100px) rotateY(90deg); }
+.cube-face.left   { transform: translateX(-100px) rotateY(-90deg); }
+.cube-face.top    { transform: translateY(-100px) rotateX(90deg); }
+.cube-face.bottom { transform: translateY(100px) rotateX(-90deg); }
+
+/* Animation Keyframes */
+@keyframes rotate3d {
+    0%   { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cube-container {
+        width: 150px;
+        height: 150px;
+    }
+    .cube-face {
+        width: 150px;
+        height: 150px;
+        font-size: 1.2rem;
+    }
+    .cube-face i { font-size: 2rem; }
+    
+    .cube-face.front  { transform: translateZ(75px); }
+    .cube-face.back   { transform: translateZ(-75px) rotateY(180deg); }
+    .cube-face.right  { transform: translateX(75px) rotateY(90deg); }
+    .cube-face.left   { transform: translateX(-75px) rotateY(-90deg); }
+    .cube-face.top    { transform: translateY(-75px) rotateX(90deg); }
+    .cube-face.bottom { transform: translateY(75px) rotateX(-90deg); }
+}
+
+/* =========================================
+   MAGIC MENU WIDGET STYLES
+   ========================================= */
+.magic-menu-widget {
+    position: fixed;
+    top: 50%;
+    left: 20px;            /* Fixes it to the left side */
+    transform: translateY(-50%);
+    z-index: 10000;        /* Ensures it sits on top of everything */
+}
+
+.magic-menu-widget ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;             /* Space between items */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.magic-menu-widget ul li {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;   /* Makes it a circle */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Animation: Expand width to show text */
+.magic-menu-widget ul li:hover {
+    width: 180px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* The Gradient Background Effect using --i and --j */
+.magic-menu-widget ul li::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.magic-menu-widget ul li:hover::before {
+    opacity: 1;
+}
+
+/* The Glowing "Dot" Effect */
+.magic-menu-widget ul li::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.magic-menu-widget ul li:hover::after {
+    opacity: 1;
+}
+
+/* Icon Styles */
+.magic-menu-widget ul li .icon {
+    position: relative;
+    color: #fff;
+    font-size: 1.75rem;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+    z-index: 10;           /* Keep icon above the gradient */
+}
+
+.magic-menu-widget ul li:hover .icon {
+    transform: scale(0);   /* Hide icon on hover (optional style choice) */
+    font-size: 0;
+}
+
+/* If you prefer the icon to STAY visible on left, change the above block to:
+   .magic-menu-widget ul li:hover .icon { transform: translateX(-60px); } 
+   But standard magic menu usually hides it or moves it.
+*/
+
+/* Title Styles (Hidden by default) */
+.magic-menu-widget ul li .title {
+    position: absolute;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.magic-menu-widget ul li:hover .title {
+    opacity: 1;
+    transition-delay: 0.15s;
 }

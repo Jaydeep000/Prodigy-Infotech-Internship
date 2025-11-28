@@ -360,11 +360,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- QUALITY SECTION -->
     <section class="section__container class__container">
-      <div class="class__image" data-aos="zoom-in">
-        <span class="bg__blur"></span>
-        <img src="assets/class-1.jpg" alt="Detailing work 1" class="class__img-1" />
-        <img src="assets/class-2.jpg" alt="Detailing work 2" class="class__img-2" />
+      <div class="cube-wrapper-container" data-aos="zoom-in">
+  <div class="cube-container">
+    <div class="cube-box">
+      <div class="cube-face front">
+        <i class="ri-flashlight-fill"></i> Fast
       </div>
+      <div class="cube-face back">
+        <i class="ri-shield-check-fill"></i> Safe
+      </div>
+      <div class="cube-face right">
+        <i class="ri-drop-fill"></i> Wash
+      </div>
+      <div class="cube-face left">
+        <i class="ri-star-smile-fill"></i> Best
+      </div>
+      <div class="cube-face top">
+        <i class="ri-vip-diamond-fill"></i> Lux
+      </div>
+      <div class="cube-face bottom">
+        <i class="ri-heart-fill"></i> Care
+      </div>
+    </div>
+  </div>
+</div>
       <div class="class__content" data-aos="fade-up">
         <h2 class="section__header">THE SHINE YOU DESERVE</h2>
         <p>
@@ -863,6 +882,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 </script>
 
+<div class="magic-menu-widget">
+  <ul>
+    <li style="--i:#a955ff;--j:#ea51ff">
+      <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+      <span class="title">Home</span>
+    </li>
+    
+    <li style="--i:#56CCF2;--j:#2F80ED">
+      <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
+      <span class="title">Video</span>
+    </li>
+    
+    <li style="--i:#FF9966;--j:#FF5E62">
+      <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+      <span class="title">Photo</span>
+    </li>
+    
+    <li style="--i:#80FF72;--j:#7EE8FA">
+      <span class="icon"><ion-icon name="share-social-outline"></ion-icon></span>
+      <span class="title">Share</span>
+    </li>
+    
+    <li style="--i:#ffa9c6;--j:#f434e2">
+      <span class="icon"><ion-icon name="heart-outline"></ion-icon></span>
+      <span class="title">Like</span>
+    </li>
+  </ul>
+</div>
 
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
