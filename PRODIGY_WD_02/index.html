@@ -1,0 +1,154 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>High-Precision Stopwatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Stopwatch</h1>
+    <p class="tagline">High-precision laps, keyboard shortcuts, and exports.</p>
+  </header>
+
+  <main class="app-main" aria-label="Stopwatch" role="region">
+    <section class="timer-section" aria-live="polite">
+      <div class="timer-display" id="timerDisplay">
+        00:00.000
+      </div>
+      <p class="timer-status" id="timerStatus" aria-live="polite">
+        Stopped
+      </p>
+    </section>
+
+    <section class="controls-section" aria-label="Stopwatch controls">
+      <div class="primary-controls">
+        <button
+          id="startStopBtn"
+          class="btn btn-primary"
+          type="button"
+          aria-pressed="false"
+          aria-label="Start or stop the stopwatch. Space key also toggles."
+          aria-keyshortcuts="Space"
+        >
+          Start
+        </button>
+      </div>
+
+      <div class="secondary-controls" aria-label="Secondary controls">
+        <button
+          id="lapBtn"
+          class="btn"
+          type="button"
+          aria-label="Record lap. L key also records lap."
+          aria-keyshortcuts="L"
+        >
+          Lap
+        </button>
+        <button
+          id="resetBtn"
+          class="btn"
+          type="button"
+          aria-label="Reset stopwatch when stopped. R key also resets."
+          aria-keyshortcuts="R"
+        >
+          Reset
+        </button>
+        <button
+          id="soundToggleBtn"
+          class="btn"
+          type="button"
+          aria-pressed="false"
+          aria-label="Toggle lap sound. S key also toggles sound."
+          aria-keyshortcuts="S"
+        >
+          Sound: Off
+        </button>
+      </div>
+
+      <div class="export-controls" aria-label="Export and clipboard controls">
+        <button
+          id="exportCsvBtn"
+          class="btn"
+          type="button"
+          aria-label="Export laps as CSV file. E key also exports."
+          aria-keyshortcuts="E"
+        >
+          Export CSV
+        </button>
+        <button
+          id="copyTableBtn"
+          class="btn"
+          type="button"
+          aria-label="Copy lap table to clipboard."
+        >
+          Copy Table
+        </button>
+        <button
+          id="downloadTxtBtn"
+          class="btn"
+          type="button"
+          aria-label="Download laps as text file."
+        >
+          Download Text
+        </button>
+      </div>
+    </section>
+
+    <section class="laps-section" aria-label="Lap times">
+      <header class="laps-header">
+        <h2>Laps</h2>
+        <button
+          id="clearLapsBtn"
+          class="btn btn-small"
+          type="button"
+          aria-label="Clear all laps."
+        >
+          Clear All
+        </button>
+      </header>
+
+      <div class="laps-table-wrapper" tabindex="0" aria-label="Lap list">
+        <table class="laps-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Lap Time</th>
+              <th scope="col">Split</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="lapsBody">
+            <!-- Laps injected here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+<footer class="app-footer glass-footer w-full max-w-md md:max-w-lg mt-6 p-5 rounded-2xl text-gray-300 space-y-3">
+    <h2 class="text-lg font-semibold text-gray-200 flex items-center gap-2">
+        <i data-lucide="info" class="w-5 h-5 text-blue-400"></i>
+        Usage
+    </h2>
+
+    <ul class="list-disc pl-5 space-y-2 text-sm leading-relaxed">
+        <li>Click <b>Start</b> to begin, then <b>Lap</b> to record laps; 
+            <b>Stop</b> pauses the timer and <b>Reset</b> clears when stopped.</li>
+
+        <li><b>Keyboard:</b> Space = Start/Stop, L = Lap, R = Reset, 
+            S = Sound toggle, E = Export CSV.</li>
+
+        <li>Use <b>Export CSV</b>, <b>Copy Table</b>, or <b>Download Text</b> 
+            to save your lap data.</li>
+
+        <li>Sound and lap history are locally saved so your stopwatch 
+            can recover after reloads.</li>
+    </ul>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
