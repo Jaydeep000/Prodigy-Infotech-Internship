@@ -4,6 +4,14 @@
    Notes: defensive checks for missing elements, accessibility-minded.
 */
 
+// Stop Chrome/Edge from restoring scroll when reloading
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   /* ====== Helpers ====== */
   const $ = (sel, ctx = document) => ctx.querySelector(sel);

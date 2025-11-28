@@ -1260,3 +1260,67 @@ nav.nav--scrolled {
     z-index: 9998;
     opacity: 0.8;
 }
+
+/* ================================
+      CONTACT SECTION
+================================ */
+.contact__container {
+  margin-top: 5rem;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+  padding: 2rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* Left Info Column */
+.contact__info h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #fafafa;
+}
+
+.contact__info p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a1a1aa;
+}
+
+.contact__info i {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+/* Form Inputs */
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder {
+  color: #b5b5b5;
+}
+
+/* Form Button */
+.contact__form button {
+  width: 100%;
+  border-radius: 10px;
+}
