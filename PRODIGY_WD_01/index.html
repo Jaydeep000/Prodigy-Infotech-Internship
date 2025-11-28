@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- REMIX ICONS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    
+    <!-- ANIMATION LIBRARY (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- EXTERNAL CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    
+    <title>CarDestiny - Official | Drive Fresh!</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+  </head>
+  <body>
+    <!-- PRELOADER -->
+    <div id="preloader"></div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button onclick="topFunction()" id="scrollToTop" title="Go to top"><i class="ri-arrow-up-line"></i></button>
+
+    <!-- NAVIGATION -->
+    <nav>
+      <div class="nav__content-wrapper">
+        <div class="nav__logo">
+          <a href="#home"><img src="assets/logo.png" alt="logo" /></a>
+        </div>
+        
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="#service">Service</a></li>
+          <li class="link"><a href="#gallery">Gallery</a></li>
+          <li class="link"><a href="#pricing">Pricing</a></li>
+          <li class="link"><a href="#reviews">Reviews</a></li>
+          <li class="link"><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+
+        <button class="btn open-modal-btn">Join Now</button>
+      </div>
+    </nav>
+    <h1 class="brand-title">CarDestiny</h1>
+
+    <!-- HERO SECTION -->
+    <header class="section__container header__container" id="home">
+      <div class="header__content" data-aos="fade-right">
+        <h4>WE WASH, YOU ROLL.</h4>
+        <h1><span>MAKE YOUR</span> CAR SHINE LIKE NEW!</h1>
+        <p>
+          Transform your vehicle with our premier car wash services. Our expert team ensures meticulous attention to detail, 
+          revitalizing your car inside and out. Drive with confidence and pride.
+        </p>
+        <button class="btn open-modal-btn">Get Started</button>
+      </div>
+      <div class="header__image" data-aos="fade-left">
+        <img src="assets/header.png" alt="header" />
+      </div>
+    </header>
+
+    <!-- SERVICES -->
+    <section class="section__container explore__container" id="service">
+      <div class="explore__header" data-aos="fade-up">
+        <h2 class="section__header">EXPLORE OUR PROGRAM</h2>
+        <p class="section__subheader" data-aos="fade-up" data-aos-delay="100">
+          Professional care for every inch of your vehicle.
+        </p>
+      </div>
+      <div class="explore__grid">
+        <!-- Card 1 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="200">
+          <span><i class="ri-sparkling-2-fill"></i></span>
+          <h4>Revitalize Your Ride</h4>
+          <p>Restore the essence of your vehicle's beauty as we dive into comprehensive car detailing and maintenance.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 2 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="300">
+          <span><i class="ri-heart-pulse-fill"></i></span>
+          <h4>Exterior Care</h4>
+          <p>Experience the ultimate shine with our expert exterior cleaning and waxing services.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 3 (Featured) -->
+        <div class="explore__card explore__card--featured" data-aos="fade-up" data-aos-delay="400">
+          <span><i class="ri-dashboard-3-line"></i></span>
+          <h4>Interior Detailing</h4>
+          <p>Rejuvenate your car's interior with our meticulous cleaning and conditioning treatments.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 4 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="500">
+          <span><i class="ri-shield-check-fill"></i></span>
+          <h4>Protection Packages</h4>
+          <p>Shield your vehicle from the elements with our premium protective coatings and sealants.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 5 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="600">
+          <span><i class="ri-time-line"></i></span>
+          <h4>Express Wash</h4>
+          <p>A quick yet thorough wash for a sparkling clean finish when you're on the go.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 6 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="700">
+          <span><i class="ri-gem-line"></i></span>
+          <h4>Luxury Treatments</h4>
+          <p>Indulge your vehicle with our luxury treatments, including hand waxing and leather conditioning.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 7 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="800">
+          <span><i class="ri-truck-line"></i></span>
+          <h4>Fleet Services</h4>
+          <p>Keep your business moving with our tailored fleet cleaning and maintenance solutions.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <!-- Card 8 -->
+        <div class="explore__card" data-aos="fade-up" data-aos-delay="900">
+          <span><i class="ri-tools-fill"></i></span>
+          <h4>Specialized Services</h4>
+          <p>From headlight restoration to odor removal, we offer specialized services to meet all your car care needs.</p>
+          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+     STATS SECTION (FULL)
+============================= -->
+
+<style>
+/* Container */
+.stats__container {
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+
+/* Section Heading */
+.stats__container .section__header {
+  font-size: 2.8rem;
+  color: #fafafa;
+  margin-bottom: 1rem;
+  font-family: "Outfit", sans-serif;
+}
+
+.stats__container .section__subheader {
+  color: #a1a1aa;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Stats Grid */
+.stats-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 3rem 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+}
+
+/* Stat Item */
+.stat {
+  text-align: center;
+}
+
+/* Number Styling */
+.stat-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  background: linear-gradient(to right, #ffffff, #c5baff);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.35);
+  transition: 0.3s;
+  opacity: 0.3;
+}
+
+/* Glow + scale when counting */
+.stat-number.active {
+  animation: statGlow 1.3s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+@keyframes statGlow {
+  0% {
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    transform: scale(1);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.7);
+    transform: scale(1.08);
+  }
+}
+
+/* Stat Label */
+.stat span {
+  font-size: 0.9rem;
+  color: #8b5cf6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+
+<section class="section__container stats__container" id="stats">
+  <h2 class="section__header">Our Impact</h2>
+  <p class="section__subheader">Numbers that show how much customers trust us.</p>
+
+  <ul class="stats-list">
+    <li class="stat">
+      <strong class="stat-number" data-target="8500">0</strong>
+      <span>Cars Washed</span>
+    </li>
+
+    <li class="stat">
+      <strong class="stat-number" data-target="490">0</strong>
+      <span>5-Star Reviews</span>
+    </li>
+
+    <li class="stat">
+      <strong class="stat-number" data-target="1200">0</strong>
+      <span>Happy Customers</span>
+    </li>
+
+    <li class="stat">
+      <strong class="stat-number" data-target="15">0</strong>
+      <span>Years Experience</span>
+    </li>
+  </ul>
+</section>
+
+<script>
+/* ============================
+   STATS COUNTER + CSS ANIMATION
+============================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-number");
+  const statsSection = document.getElementById("stats");
+
+  let started = false;
+
+  function animateCounter(counter) {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+    let increment = target / 100; // Adjust smoothness
+
+    counter.classList.add("active");
+
+    function update() {
+      count += increment;
+
+      if (count < target) {
+        counter.textContent = Math.floor(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target;
+        counter.classList.remove("active"); // stop glowing after done
+      }
+    }
+
+    update();
+  }
+
+  window.addEventListener("scroll", () => {
+    const sectionTop = statsSection.getBoundingClientRect().top;
+
+    if (!started && sectionTop < window.innerHeight - 150) {
+      counters.forEach((num) => animateCounter(num));
+      started = true;
+    }
+  });
+});
+</script>
+
+
+    <!-- NEW: TIMELINE SECTION -->
+    <section class="section__container timeline__container">
+      <h2 class="section__header">How It Works</h2>
+      <p class="section__subheader">Simple steps to get your car looking brand new.</p>
+      <ol class="service-timeline">
+        <li data-aos="fade-up">
+          <h3>1. Book Your Wash</h3>
+          <p>Choose a plan and select a convenient time slot online.</p>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="100">
+          <h3>2. Arrival & Inspection</h3>
+          <p>We inspect and note any special requirements before starting.</p>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="200">
+          <h3>3. Cleaning & Treatment</h3>
+          <p>Exterior wash, interior detailing and applied protective treatments.</p>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="300">
+          <h3>4. Quality Check & Delivery</h3>
+          <p>Final check and handover with customer satisfaction confirmation.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- NEW GALLERY SECTION -->
+    <section class="section__container" id="gallery">
+      <h2 class="section__header" data-aos="fade-up">OUR WORK GALLERY</h2>
+      <p class="section__subheader" data-aos="fade-up">See the results for yourself.</p>
+      
+      <div class="gallery__grid">
+        <!-- Image 1 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="assets/gallery-1.jpg" alt="Car Work 1">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+        <!-- Image 2 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="assets/gallery-2.jpg" alt="Car Work 2">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+        <!-- Image 3 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="assets/gallery-3.jpg" alt="Car Work 3">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+        <!-- Image 4 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="400">
+          <img src="assets/gallery-4.jpg" alt="Car Work 4">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+        <!-- Image 5 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="500">
+          <img src="assets/gallery-5.jpg" alt="Car Work 5">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+        <!-- Image 6 -->
+        <div class="gallery__card" data-aos="zoom-in" data-aos-delay="600">
+          <img src="assets/gallery-6.jpg" alt="Car Work 6">
+          <div class="gallery__overlay"><i class="ri-search-eye-line"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUALITY SECTION -->
+    <section class="section__container class__container">
+      <div class="class__image" data-aos="zoom-in">
+        <span class="bg__blur"></span>
+        <img src="assets/class-1.jpg" alt="Detailing work 1" class="class__img-1" />
+        <img src="assets/class-2.jpg" alt="Detailing work 2" class="class__img-2" />
+      </div>
+      <div class="class__content" data-aos="fade-up">
+        <h2 class="section__header">THE SHINE YOU DESERVE</h2>
+        <p>
+          Led by our team of expert detailers, 'The Wash You Will Get Here' is an 
+          invigorating, results-oriented experience that combines the perfect blend 
+          of precision, care, and efficiency. Each wash is meticulously executed to 
+          ensure your vehicle shines brilliantly and stays protected, guaranteeing 
+          you drive away with satisfaction and pride.
+        </p>
+        <button class="btn open-modal-btn">Book Your Wash</button>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section__container price__container" id="pricing">
+      <h2 class="section__header" data-aos="fade-down">OUR PRICING PLAN</h2>
+      <p class="section__subheader" data-aos="fade-down">
+        Choose the tier that aligns with your vehicle's aspirations and budget.
+      </p>
+      <div class="price__grid">
+        <div class="price__card" data-aos="fade-up" data-aos-delay="100">
+          <div class="price__card__content">
+            <h4>Basic Plan</h4>
+            <h3>$15</h3>
+            <p><i class="ri-checkbox-circle-line"></i> Exterior wash</p>
+            <p><i class="ri-checkbox-circle-line"></i> Hand dry</p>
+            <p><i class="ri-checkbox-circle-line"></i> Wheel cleaning</p>
+          </div>
+          <button class="btn price__btn open-modal-btn">Select Basic</button>
+        </div>
+
+        <div class="price__card price__card--featured" data-aos="fade-up" data-aos-delay="200">
+          <div class="price__card__content">
+            <h4>Standard Plan</h4>
+            <h3>$25</h3>
+            <p><i class="ri-checkbox-circle-line"></i> Basic Plan features</p>
+            <p><i class="ri-checkbox-circle-line"></i> Undercarriage wash</p>
+            <p><i class="ri-checkbox-circle-line"></i> Clear coat protectant</p>
+            <p><i class="ri-checkbox-circle-line"></i> Air freshener</p>
+          </div>
+          <button class="btn price__btn__featured open-modal-btn">Select Standard</button>
+        </div>
+
+        <div class="price__card" data-aos="fade-up" data-aos-delay="300">
+          <div class="price__card__content">
+            <h4>Premium Plan</h4>
+            <h3>$45</h3>
+            <p><i class="ri-checkbox-circle-line"></i> Standard Plan features</p>
+            <p><i class="ri-checkbox-circle-line"></i> Rain-X protectant</p>
+            <p><i class="ri-checkbox-circle-line"></i> Hot wax and shine</p>
+            <p><i class="ri-checkbox-circle-line"></i> Interior detailing</p>
+          </div>
+          <button class="btn price__btn open-modal-btn">Select Premium</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="review" id="reviews">
+      <div class="section__container review__container" data-aos="fade-right">
+        <span><i class="ri-double-quotes-r"></i></span>
+        <div class="review__content">
+          <h4>MEMBER REVIEW</h4>
+          <p>
+            "CarDestiny is hands down the best service in the city. The attendants are 
+            professional, and Jaydeep's vision for customer satisfaction really shows 
+            in the details."
+          </p>
+          <div class="review__rating">
+            <span><i class="ri-star-fill"></i></span><span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-fill"></i></span><span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-fill"></i></span>
+          </div>
+          <div class="review__footer">
+            <div class="review__member">
+              <img src="assets/member.webp" alt="member" />
+              <div class="review__member__details">
+                <h4>Ratul Mondal</h4>
+                <p>Founder & CEO of Apple</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: FAQ SECTION -->
+    <section class="section__container faq__container">
+      <h2 class="section__header">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What is included in the Standard Plan?
+          </button>
+          <div class="faq-answer" hidden>
+            <p>The Standard Plan includes Exterior wash, Undercarriage wash, Clear coat protectant and an Air freshener.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+             Do you offer fleet discounts?
+          </button>
+          <div class="faq-answer" hidden>
+            <p>Yes — contact our sales team for tailored pricing on fleet services.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+             Can I reschedule my booking?
+          </button>
+          <div class="faq-answer" hidden>
+            <p>Yes, rescheduling is available up to 12 hours before your appointment via phone or email.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: MULTI-STEP BOOKING FORM -->
+    <section class="section__container booking__container" id="booking">
+      <h2 class="section__header">Book Your Wash</h2>
+      <p class="section__subheader">Fast booking — choose your plan and schedule.</p>
+
+      <form id="multiStepBooking" class="multi-step-form">
+        <!-- Step Indicators -->
+        <ol class="step-indicators">
+          <li class="step active" data-step="1">1. Details</li>
+          <li class="step" data-step="2">2. Add-ons</li>
+          <li class="step" data-step="3">3. Confirm</li>
+        </ol>
+
+        <!-- Step 1 -->
+        <fieldset class="form-step" data-step="1">
+          <legend>Contact Details</legend>
+          <div class="form-group">
+            <label for="bk-name">Name</label>
+            <input id="bk-name" name="name" type="text" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="bk-phone">Phone Number</label>
+            <input id="bk-phone" name="phone" type="tel" placeholder="+91 0000000000" required />
+          </div>
+          <div class="form-group">
+            <label for="bk-plan">Select Plan</label>
+            <select id="bk-plan" name="plan" required>
+              <option value="basic">Basic Plan ($15)</option>
+              <option value="standard">Standard Plan ($25)</option>
+              <option value="premium">Premium Plan ($45)</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn next-step">Next</button>
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="form-step" data-step="2" hidden>
+          <legend>Add-ons & Schedule</legend>
+          <div class="form-group">
+            <label for="bk-date">Preferred Date</label>
+            <input id="bk-date" name="date" type="date" required />
+          </div>
+          <div class="form-group">
+            <label for="bk-time">Preferred Time</label>
+            <input id="bk-time" name="time" type="time" required />
+          </div>
+          <div class="form-group">
+            <label>Add-ons</label>
+            <div style="color:var(--text-light)">
+              <label><input type="checkbox" name="addons" value="headlight" /> Headlight Restoration</label><br>
+              <label><input type="checkbox" name="addons" value="odor" /> Odor Removal</label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn prev-step">Back</button>
+            <button type="button" class="btn next-step">Next</button>
+          </div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="form-step" data-step="3" hidden>
+          <legend>Confirm Booking</legend>
+          <div class="confirmation-summary" style="margin-bottom:2rem; color:var(--text-light)">
+            <p>Please review your details before confirming.</p>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn prev-step">Back</button>
+            <button type="submit" class="btn form-btn">Confirm Booking</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- NEW: NEWSLETTER SECTION -->
+    <section class="section__container newsletter__container">
+      <h2 class="section__header">Stay Updated</h2>
+      <p class="section__subheader">Sign up for exclusive promos and seasonal offers.</p>
+      <form class="newsletter-form">
+        <input name="email" type="email" placeholder="you@example.com" required />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer__container">
+  <div class="footer-grid">
+    
+    <!-- Column 1: Left Side (Logo, Desc, Socials) -->
+    <div class="footer__col">
+      <div class="footer__logo">
+        <!-- Replace with your logo path -->
+        <img src="assets/logo.png" alt="Company Logo" />
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eum, minima tempora suscipit omnis vel blanditiis similique corporis doloribus repellat recusandae officiis, quae placeat quaerat aspernatur eaque sapiente! Hic.
+      </p>
+      <div class="footer__socials">
+        <!-- Replace icons as needed (using RemixIcon or FontAwesome) -->
+        <a href="#"><i class="ri-facebook-fill"></i></a>
+        <a href="#"><i class="ri-instagram-line"></i></a>
+        <a href="#"><i class="ri-twitter-fill"></i></a>
+        <a href="#"><i class="ri-linkedin-fill"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Contact -->
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Support Ticket</a>
+      <a href="#">Email Us</a>
+      <a href="#">Visit Store</a>
+    </div>
+
+    <!-- Column 3: About Us -->
+    <div class="footer__col">
+      <h4>About Us</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Careers</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+
+  </div>
+
+  <div class="footer__bar" style="text-align: center;">
+    <h2>Copyright © 2025 <strong>CarDestiny</strong> All rights reserved.</h2>
+  </div>
+</footer>
+    ...
+<!-- FOOTER END -->
+
+<script src="script.js"></script>
+
+
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // 1. Loader Logic
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function() {
+        loader.style.opacity = "0";
+        setTimeout(function(){
+          loader.style.display = "none";
+        }, 500); 
+      });
+
+      // 2. Initialize Animation
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // 3. Mobile Menu Logic
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+      });
+      navLinks.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+
+      // 4. Scroll to Top Logic
+      const scrollBtn = document.getElementById("scrollToTop");
+      window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      // 5. Modal Logic
+      const modal = document.getElementById("bookingModal");
+      const btns = document.querySelectorAll(".open-modal-btn");
+      const closeSpan = document.getElementsByClassName("close")[0];
+      btns.forEach(btn => {
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+      });
+      closeSpan.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // 6. Stats Counter Animation
+      const stats = document.querySelectorAll('.stat-number');
+      const statsSection = document.querySelector('.stats__container');
+      let started = false; 
+
+      function startCount(el) {
+        let goal = el.dataset.target;
+        let count = setInterval(() => {
+          el.textContent++;
+          if (el.textContent == goal) {
+            clearInterval(count);
+          }
+        }, 2000 / goal);
+      }
+
+      window.addEventListener('scroll', () => {
+        if(statsSection && window.scrollY >= statsSection.offsetTop - 500 && !started) {
+          stats.forEach((stat) => startCount(stat));
+          started = true;
+        }
+      });
+
+      // 7. FAQ Accordion
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const isExpanded = question.getAttribute('aria-expanded') === 'true';
+          
+          // Close all others
+          document.querySelectorAll('.faq-question').forEach(q => {
+             q.setAttribute('aria-expanded', 'false');
+             q.nextElementSibling.hidden = true;
+          });
+
+          // Toggle clicked
+          if(!isExpanded) {
+            question.setAttribute('aria-expanded', 'true');
+            answer.hidden = false;
+          }
+        });
+      });
+
+      // 8. Multi-step Form Logic
+      const formSteps = document.querySelectorAll(".form-step");
+      const nextBtns = document.querySelectorAll(".next-step");
+      const prevBtns = document.querySelectorAll(".prev-step");
+      const stepIndicators = document.querySelectorAll(".step");
+      let currentStep = 0;
+
+      function updateFormSteps() {
+        formSteps.forEach((step, index) => {
+          step.hidden = index !== currentStep;
+        });
+        stepIndicators.forEach((indicator, index) => {
+           indicator.classList.toggle("active", index === currentStep);
+        });
+      }
+
+      nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          if(currentStep < formSteps.length - 1) {
+            currentStep++;
+            updateFormSteps();
+          }
+        });
+      });
+
+      prevBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          if(currentStep > 0) {
+            currentStep--;
+            updateFormSteps();
+          }
+        });
+      });
+      
+      updateFormSteps();
+    </script>
+    <div class="custom-cursor"></div>
+<div class="cursor-trail"></div>
+
+<script>
+    const cursor = document.querySelector(".custom-cursor");
+    const trailContainer = document.querySelector(".cursor-trail");
+
+    // Generate tail dots
+    const dots = [];
+    const totalDots = 10;
+
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement("span");
+        trailContainer.appendChild(dot);
+        dots.push({
+            element: dot,
+            x: 0,
+            y: 0
+        });
+    }
+
+    // Move the cursor
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursor.style.left = mouseX + "px";
+        cursor.style.top = mouseY + "px";
+    });
+
+    // Animate tail (smooth following)
+    function animateTrail() {
+        let x = mouseX;
+        let y = mouseY;
+
+        dots.forEach((dot, index) => {
+            dot.x += (x - dot.x) * 0.15;
+            dot.y += (y - dot.y) * 0.15;
+
+            dot.element.style.left = dot.x + "px";
+            dot.element.style.top = dot.y + "px";
+
+            // shrink dots gradually
+            dot.element.style.width = 12 - index + "px";
+            dot.element.style.height = 12 - index + "px";
+
+            // fade smaller dots
+            dot.element.style.opacity = (1 - index / totalDots).toFixed(2);
+
+            x = dot.x;
+            y = dot.y;
+        });
+
+        requestAnimationFrame(animateTrail);
+    }
+
+    animateTrail();
+
+    // Hover scale effect
+    document.querySelectorAll("a, button, input, .btn").forEach(el => {
+        el.addEventListener("mouseenter", () => {
+            cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
+            cursor.style.background = "rgba(255, 255, 255, 0.25)";
+        });
+        el.addEventListener("mouseleave", () => {
+            cursor.style.transform = "translate(-50%, -50%) scale(1)";
+            cursor.style.background = "transparent";
+        });
+    });
+</script>
+
+
+  </body>
+</html>

@@ -76,7 +76,7 @@ A two-player Tic-Tac-Toe game built using HTML, CSS, and JavaScript game logic.
 
 ---
 
-## ✅ **TASK 5 — Weather Application**
+## **TASK 5 — Weather Application**
 
 **Live Demo:** 
 
