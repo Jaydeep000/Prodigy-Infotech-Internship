@@ -1,0 +1,263 @@
+/* style.css */
+
+:root {
+  /* Color Palette */
+  --bg-color: #1f0e3c;       /* Deep Black */
+  --bg-panel: #413f78;       /* Dark Gray */
+  --grid-line: #140a27;      
+  
+  --neon-x: #ff0055;         /* Neon Pink */
+  --neon-o: #00e5ff;         /* Neon Cyan */
+  --neon-glow: #ffffff;      /* White glow for text */
+  --text-main: #e4e4e7;
+  --text-muted: #a1a1aa;
+
+  /* Dimensions */
+  --cell-size: 100px;
+  --gap-size: 8px;
+  --board-max-width: 320px; /* cell*3 + gap*2 approx */
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.subtitle strong {
+  color: var(--text-main);
+}
+
+/* The Board Area */
+.board-wrap {
+  position: relative; /* Crucial for SVG overlay positioning */
+  padding: 10px;
+  background: var(--bg-panel);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* SVG Line Overlay */
+.win-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through to buttons */
+  z-index: 10;
+  filter: drop-shadow(0 0 4px var(--neon-glow));
+}
+
+.line {
+  stroke: var(--text-main);
+  stroke-width: 6;
+  opacity: 0; /* Hidden by default, JS will animate opacity */
+  transition: opacity 0.3s ease;
+}
+
+.line.active {
+  opacity: 1;
+}
+
+/* The Grid */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size));
+  grid-template-rows: repeat(3, var(--cell-size));
+  gap: var(--gap-size);
+}
+
+/* Individual Cells */
+.cell {
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  
+  /* Text centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Courier New", monospace; /* Monospace for alignment */
+  
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.cell:hover:not(:disabled) {
+  background-color: #1a1a20;
+}
+
+.cell:active {
+  transform: scale(0.98);
+}
+
+/* Styles for X and O (Classes to be added by JS) */
+.cell.x {
+  color: var(--neon-x);
+  text-shadow: 0 0 15px var(--neon-x);
+}
+
+.cell.o {
+  color: var(--neon-o);
+  text-shadow: 0 0 15px var(--neon-o);
+}
+
+/* Sidebar / Info Panel */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px;
+  text-align: center;
+}
+
+.status {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid var(--grid-line);
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.score {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  padding: 10px 5px;
+  border-radius: 8px;
+  border: 1px solid var(--grid-line);
+}
+
+.score span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.score strong {
+  font-size: 1.5rem;
+}
+
+#x-score { color: var(--neon-x); }
+#o-score { color: var(--neon-o); }
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: var(--text-main);
+  color: var(--bg-color);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--grid-line);
+}
+
+.btn.ghost:hover {
+  border-color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Attribution */
+.attribution {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+/* Desktop Landscape Layout */
+@media (min-width: 800px) {
+  .app {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .sidebar {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .scoreboard {
+    justify-content: flex-start;
+  }
+}
+
+/* Accessibility Focus */
+button:focus-visible {
+  outline: 2px solid var(--neon-o);
+  outline-offset: 4px;
+}

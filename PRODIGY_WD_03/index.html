@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neon Tic-Tac-Toe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+    <header class="header">
+        <h1 class="title">Modern Tic‑Tac‑Toe</h1>
+        <p class="subtitle" id="game-subtitle">Select your mode below</p>
+    </header>
+
+    <section class="board-wrap">
+        <svg class="win-line" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true">
+            <line class="line" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" />
+        </svg>
+
+        <div class="board" id="board" role="grid" aria-label="Tic Tac Toe Board">
+            <button class="cell" data-index="0" aria-label="cell 1"></button>
+            <button class="cell" data-index="1" aria-label="cell 2"></button>
+            <button class="cell" data-index="2" aria-label="cell 3"></button>
+            <button class="cell" data-index="3" aria-label="cell 4"></button>
+            <button class="cell" data-index="4" aria-label="cell 5"></button>
+            <button class="cell" data-index="5" aria-label="cell 6"></button>
+            <button class="cell" data-index="6" aria-label="cell 7"></button>
+            <button class="cell" data-index="7" aria-label="cell 8"></button>
+            <button class="cell" data-index="8" aria-label="cell 9"></button>
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <div class="settings-panel">
+            <div class="mode-toggle">
+                <input type="radio" name="gamemode" id="mode-pve" value="pve" checked>
+                <label for="mode-pve" class="toggle-label">Vs AI</label>
+
+                <input type="radio" name="gamemode" id="mode-pvp" value="pvp">
+                <label for="mode-pvp" class="toggle-label">2 Player</label>
+            </div>
+
+            <div class="difficulty-box" id="difficulty-box">
+                <label for="difficulty-select">AI Level:</label>
+                <select id="difficulty-select" class="neon-select">
+                    <option value="easy">Easy (Random)</option>
+                    <option value="hard" selected>Unbeatable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="status" id="status">Player X's Turn</div>
+
+        <div class="scoreboard">
+            <div class="score"><span>X (P1)</span><strong id="x-score">0</strong></div>
+            <div class="score"><span>Draws</span><strong id="draw-score">0</strong></div>
+            <div class="score"><span>O (P2/AI)</span><strong id="o-score">0</strong></div>
+        </div>
+
+        <div class="controls">
+            <button id="reset-game" class="btn">New Round</button>
+            <button id="reset-scores" class="btn ghost">Reset Scores</button>
+        </div>
+    </aside>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
